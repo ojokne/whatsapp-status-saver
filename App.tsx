@@ -1,39 +1,36 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import * as React from 'react';
+import { createStaticNavigation } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import SettingsScreen from './src/screens/SettingsScreen';
+import StatusScreen from './src/screens/StatusScreen';
+import SavedScreen from './src/screens/SavedScreen';
+import { Settings } from 'react-native';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import {
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  return (
-    <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      {/* <NewAppScreen templateFileName="App.tsx" /> */}
-      <View>
-        <Text >
-          Hello world
-        </Text>
-      </View>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+const RootStack = createBottomTabNavigator({
+  screens: {
+    Status: {
+      screen: StatusScreen,
+      options: {
+        headerShown: false,
+      },
+    },
+    Saved: {
+      screen: SavedScreen,
+      options: {
+        headerShown: false,
+      },
+    },
+    Settings: {
+      screen: SettingsScreen,
+      options: {
+        headerShown: false,
+      },
+    },
   },
 });
+const Navigation = createStaticNavigation(RootStack);
 
-export default App;
+export default function App() {
+  return <Navigation />;
+}
