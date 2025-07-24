@@ -1,10 +1,11 @@
 // eslint.config.js
-import js from '@eslint/js';
-import reactPlugin from 'eslint-plugin-react';
-import reactNativePlugin from 'eslint-plugin-react-native';
-import unusedImports from 'eslint-plugin-unused-imports';
-import babelEslintParser from '@babel/eslint-parser';
-export default [
+const js = require('@eslint/js');
+const reactPlugin = require('eslint-plugin-react');
+const reactNativePlugin = require('eslint-plugin-react-native');
+const unusedImports = require('eslint-plugin-unused-imports');
+const babelEslintParser = require('@babel/eslint-parser');
+
+module.exports = [
   js.configs.recommended,
   {
     files: ['**/*.js', '**/*.jsx'],
