@@ -27,7 +27,6 @@ const renderTabBar = props => (
 export default function StatusScreen() {
   const layout = useWindowDimensions();
   const [index, setIndex] = useState(0);
-
   return (
     <View style={{ flex: 1 }}>
       <Header />
